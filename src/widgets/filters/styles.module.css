@@ -1,0 +1,40 @@
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filters_row {
+  display: flex;
+}
+
+.filters_group {
+  display: flex;
+  gap: 20px;
+}
+@media (min-width: 1387px) {
+  .filters {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .filters_row:first-child {
+    flex: 1;
+  }
+
+  .filters_row:last-child {
+    justify-content: flex-end;
+  }
+
+  .filters_group {
+    width: auto;
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 768px) {
+  .filters_group {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

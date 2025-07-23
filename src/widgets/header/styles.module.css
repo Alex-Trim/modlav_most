@@ -1,0 +1,155 @@
+.header {
+  border-bottom: 1px solid var(--color-border);
+  background-color: white;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d1004e;
+  font-family: "Georgia", serif;
+}
+
+.logo img {
+  max-height: 40px;
+}
+
+/* Десктопное меню - видно только на больших экранах */
+.desktopMenu {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Мобильное меню - скрыто по умолчанию */
+.mobileMenu {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.menuOpen {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav a {
+  font-size: 18px;
+  color: #111;
+  padding: 8px;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--color-accent);
+}
+
+.nav .active {
+  color: var(--color-accent);
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.iconWithCount {
+  position: relative;
+}
+
+.count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  font-size: 11px;
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+  line-height: 1;
+}
+
+/* Кнопка бургер-меню */
+.burgerButton {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 786px) {
+  .desktopMenu {
+    display: none;
+  }
+
+  .burgerButton {
+    display: block;
+  }
+  .nav {
+    margin-bottom: 30px;
+  }
+  .left {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+/* Десктопная версия */
+@media (min-width: 787px) {
+  .mobileMenu {
+    display: none;
+  }
+
+  .nav {
+    flex-direction: row;
+    gap: 20px;
+    .nav {
+      flex-direction: row;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .nav a {
+    font-size: 14px;
+  }
+}
